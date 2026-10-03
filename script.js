@@ -82,7 +82,7 @@ if (!motionPreference.matches) {
   motionPreference.addEventListener('change', event => { if (event.matches) document.body.classList.remove('motion-on'); });
 }
 }
-if (document.documentElement.classList.contains('intro-active') || document.documentElement.classList.contains('sequence-active')) {
+if (document.documentElement.classList.contains('intro-active')) {
   document.addEventListener('vizion:intro-complete', initializeVizionPage, {once:true});
 } else {
   initializeVizionPage();
