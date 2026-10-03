@@ -9,6 +9,9 @@ function startVizionIntro() {
   let stallTimer;
   let exitTimer;
   let lastTime = -1;
+  let awaitingGesture = false;
+  let touchHint;
+  const retryPlayback = () => {if(awaitingGesture)play();};
   const setPageInert = value => document.querySelectorAll('main, footer').forEach(element => { element.inert = value; });
   const cleanup = () => {
     if (finished) return;
@@ -16,6 +19,10 @@ function startVizionIntro() {
     clearTimeout(startupTimer);
     clearInterval(stallTimer);
     clearTimeout(exitTimer);
+    document.removeEventListener("touchend",retryPlayback);
+    document.removeEventListener("pointerup",retryPlayback);
+    document.removeEventListener("keydown",retryPlayback);
+    touchHint?.remove();
     root.classList.remove('intro-active');
     setPageInert(false);
     video.pause();
@@ -50,6 +57,7 @@ function startVizionIntro() {
   video.addEventListener('ended', () => finish(), {once:true});
   video.addEventListener('error', () => finish(true), {once:true});
   video.addEventListener('playing', () => {
+    awaitingGesture=false;touchHint?.remove();
     document.dispatchEvent(new Event('vizion:video-playing'));
     clearTimeout(startupTimer);
     if (stallTimer) return;
@@ -63,18 +71,22 @@ function startVizionIntro() {
     }, 1000);
   });
   // No request at all for reduced-motion visitors; no persistent session flag.
-  video.src = video.dataset.src;
+  if(!video.getAttribute("src"))video.src = video.dataset.src;
   const play = () => {
     if (finished || closing) return;
     const attempt = video.play();
-    if (attempt) attempt.catch(() => finish(true));
+    if (attempt) attempt.catch(error => {
+      if(error.name!=="NotAllowedError"){finish(true);return;}
+      awaitingGesture=true;clearTimeout(startupTimer);
+      if(!touchHint){touchHint=document.createElement("div");touchHint.className="scroll-entry-hint";touchHint.textContent="Toque para continuar";overlay.appendChild(touchHint);}
+      document.addEventListener("touchend",retryPlayback,{passive:true});
+      document.addEventListener("pointerup",retryPlayback);
+      document.addEventListener("keydown",retryPlayback);
+      document.dispatchEvent(new Event("vizion:video-playing"));
+    });
   };
   video.addEventListener('canplay', play, {once:true});
-  startupTimer = setTimeout(() => finish(true), 5000);
+  startupTimer = setTimeout(() => {if(!awaitingGesture)finish(true);}, 12000);
   play();
 }
-if (document.documentElement.classList.contains('sequence-active')) {
-  document.addEventListener('vizion:sequence-complete', startVizionIntro, {once:true});
-} else {
-  startVizionIntro();
-}
+startVizionIntro();
