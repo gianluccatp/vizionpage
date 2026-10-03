@@ -19,7 +19,7 @@ html.intro-active{overflow:hidden;overscroll-behavior:none}
 .sequence-active .scroll-intro,.sequence-static .scroll-intro{display:block}
 .sequence-active main,.sequence-active footer{display:none}
 .scroll-intro-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
-.scroll-intro canvas,.scroll-intro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.scroll-intro canvas,.scroll-intro img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
 .scroll-intro canvas{opacity:0}.scroll-intro canvas.ready{opacity:1}
 .scroll-intro.handoff{position:fixed;inset:0;height:100vh;height:100dvh;z-index:2147483647;transition:opacity 300ms ease}
 .scroll-intro.handoff .scroll-intro-stage{height:100%;position:relative}
@@ -32,13 +32,13 @@ html.intro-active{overflow:hidden;overscroll-behavior:none}
 @keyframes entry-nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @media(prefers-reduced-motion:reduce){.scroll-intro{height:100svh}.scroll-intro.handoff{transition:none}}
 </style>
-<link rel="preload" as="image" href="frames/frame-0002.webp" fetchpriority="high">
+<link rel="preload" as="image" href="frames/frame-0090.webp" fetchpriority="high">
 <script>document.documentElement.classList.add(window.matchMedia('(prefers-reduced-motion: reduce)').matches?'sequence-static':'sequence-active');if('scrollRestoration' in history){history.scrollRestoration='manual';}window.scrollTo(0,0);</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080505'/%3E%3Cpath d='M6 8h7l4 12 4-12h5L18 26h-5Z' fill='%23f12b31'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<section class="scroll-intro" id="scroll-intro" aria-label="Animação da marca VIZION controlada pela rolagem"><div class="scroll-intro-stage"><img src="frames/frame-0002.webp" alt="VIZION" width="1280" height="720" fetchpriority="high"><canvas aria-hidden="true"></canvas><div class="scroll-entry-hint"><span>Arraste para entrar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div></div></section>
+<section class="scroll-intro" id="scroll-intro" aria-label="Animação da marca VIZION controlada pela rolagem"><div class="scroll-intro-stage"><img src="frames/frame-0090.webp" alt="VIZION" width="1280" height="720" fetchpriority="high"><canvas aria-hidden="true"></canvas><div class="scroll-entry-hint"><span>Arraste para entrar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div></div></section>
 <script src="scroll-intro.js"></script>
 <div class="intro" id="vizion-intro" aria-hidden="true"><video id="intro-video" data-src="assets/vizion-intro.mp4" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1"></video></div>
 <script src="intro.js"></script>
