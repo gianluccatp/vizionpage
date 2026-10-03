@@ -62,3 +62,12 @@
 @keyframes service-flow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:600px){.service-group{gap:24px;padding-right:24px}.service-group>span{font-size:26px;letter-spacing:-.8px}.service-group>i{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.service-track{animation:none;width:auto}.service-group{flex-wrap:wrap;justify-content:center;white-space:normal;padding-right:0;gap:14px 20px}.service-group[aria-hidden="true"]{display:none}.service-group>i{display:none}.service-marquee{mask-image:none}}
+
+/* Keep the landing-page preview content inside its card at every breakpoint. */
+.mini-landing{display:flex;flex-direction:column;gap:12px}
+.mini-landing .mini-nav{flex-shrink:0}
+.mini-landing-copy{margin-top:0;flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:0}
+.mini-landing-copy h3{font-size:clamp(24px,3vw,30px);margin:10px 0 8px}
+.mini-landing-copy p{margin-bottom:10px;line-height:1.5}
+.mini-landing-copy .mini-cta{flex-shrink:0;line-height:1.4}
+.mini-landing .mini-bottom{position:relative;bottom:auto;left:auto;flex-shrink:0;line-height:1.4}
