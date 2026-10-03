@@ -8,7 +8,7 @@
   if (preference.matches) return; // The supplied first frame is the static fallback.
   const frames = Array(120);
   const pending = new Map();
-  let target = 0, drawn = -1, raf = 0, range = 1, width = 0, height = 0;
+  let target = 1, drawn = -1, raf = 0, range = 1, width = 0, height = 0;
   let disposed = false, handingOff = false, revealed = false, fadeTimer;
   const load = index => {
     if (pending.has(index)) return pending.get(index);
@@ -50,7 +50,8 @@
     raf=0;
     if(disposed || handingOff) return;
     const progress = Math.max(0,Math.min(1,window.scrollY/range));
-    target=Math.min(119,Math.floor(progress*119));
+    target=Math.max(1,Math.min(119,Math.floor(progress*119)));
+    section.classList.toggle("started",window.scrollY>24);
     if (target!==drawn) draw(target); // Keep the previous decoded image until this exact frame is ready.
     if (!frames[target]) load(target);
     if(progress>=1 && drawn===119) requestAnimationFrame(complete);
@@ -87,7 +88,7 @@
   }
   const motionChanged = event => {
     if(!event.matches || handingOff || disposed) return;
-    draw(0); root.classList.remove('sequence-active');root.classList.add('sequence-static');
+    draw(1); root.classList.remove('sequence-active');root.classList.add('sequence-static');
     window.scrollTo({top:0,left:0,behavior:'instant'});
     dispose();document.dispatchEvent(new Event('vizion:sequence-complete'));
   };
