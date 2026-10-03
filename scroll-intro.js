@@ -29,11 +29,13 @@
   const draw = index => {
     const image = frames[index];
     if (!image || !context) return false;
-    const scale = Math.min(width/image.naturalWidth,height/image.naturalHeight);
-    const w = image.naturalWidth*scale, h = image.naturalHeight*scale;
+    const mobile = width < height;
+    const crop = mobile ? {x:image.naturalWidth*.14,y:image.naturalHeight*.26,w:image.naturalWidth*.72,h:image.naturalHeight*.5} : {x:0,y:0,w:image.naturalWidth,h:image.naturalHeight};
+    const scale = Math.min(width/crop.w,height/crop.h);
+    const w = crop.w*scale, h = crop.h*scale;
     context.imageSmoothingEnabled=true;context.imageSmoothingQuality="high";
     context.fillStyle="#000";context.fillRect(0,0,width,height);
-    context.drawImage(image,(width-w)/2,(height-h)/2,w,h);
+    context.drawImage(image,crop.x,crop.y,crop.w,crop.h,(width-w)/2,(height-h)/2,w,h);
     canvas.classList.add('ready');
     drawn = index;
     canvas.dataset.frame = String(index + 1);
@@ -75,8 +77,7 @@
   const videoReady = () => {
     const video=document.querySelector('#intro-video');
     // Wait for an actual presented video frame, rather than merely loaded metadata.
-    if(video && 'requestVideoFrameCallback' in video)video.requestVideoFrameCallback(revealVideo);
-    else requestAnimationFrame(()=>requestAnimationFrame(revealVideo));
+    requestAnimationFrame(revealVideo);
   };
   const introDone = () => { if(!revealed){section.remove();root.classList.remove('sequence-active');dispose();} };
   function complete(){
@@ -112,7 +113,7 @@
   resize();
   // Bounded concurrent preload: each supplied URL is requested only once.
   load(89);
-  let next=0;
+  let next=89;
   const worker = async () => {while(next<120 && !disposed){const index=next++;await load(index);}};
   Promise.all(Array.from({length:6},worker));
 })();
