@@ -14,12 +14,12 @@
  reduced.addEventListener('change',motion);
  const lock=()=>{if(!finished)document.querySelectorAll('main,footer').forEach(el=>el.inert=true);};
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',lock,{once:true});else lock();
- const start=()=>{if(started||starting||finished)return;if(loadFailed){finish();return;}starting=true;video.muted=true;video.volume=0;const promise=video.play();if(promise)promise.catch(()=>{started=false;starting=false;hint.hidden=false;hint.querySelector('span').textContent='Arraste para cima para iniciar';});};
- function touchStart(e){startY=e.changedTouches[0]?.clientY;}
- function touchMove(e){if(e.cancelable)e.preventDefault();const y=e.touches[0]?.clientY;if(startY!==null&&y!==undefined&&startY-y>25)start();}
- function pointerDown(e){pointerY=e.clientY;}
+ const start=()=>{if(started||finished)return;if(loadFailed){finish();return;}starting=true;hint.querySelector("span").textContent="Carregando abertura…";video.muted=true;video.volume=0;const promise=video.play();if(promise)promise.catch(()=>{started=false;starting=false;hint.hidden=false;hint.querySelector('span').textContent='Arraste para cima para iniciar';});};
+ function touchStart(e){startY=e.changedTouches[0]?.clientY;start();}
+ function touchMove(e){if(e.cancelable)e.preventDefault();const y=e.touches[0]?.clientY;}
+ function pointerDown(e){pointerY=e.clientY;if(e.pointerType==="touch"||e.pointerType==="pen")start();}
  function pointerUp(e){if(pointerY!==null&&pointerY-e.clientY>25)start();pointerY=null;}
- function touchEnd(e){const end=e.changedTouches[0]?.clientY;if(startY!==null&&end!==undefined&&startY-end>25)start();startY=null;}
+ function touchEnd(e){const end=e.changedTouches[0]?.clientY;if(!started)start();startY=null;}
  function wheel(e){if(e.deltaY>10)start();}
  function key(e){if(['ArrowUp','ArrowDown',' ','Enter'].includes(e.key)){e.preventDefault();start();}}
  overlay.addEventListener('pointerdown',pointerDown);overlay.addEventListener('pointerup',pointerUp);
