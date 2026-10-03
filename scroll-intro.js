@@ -31,6 +31,7 @@
     if (!image || !context) return false;
     const scale = Math.min(width/image.naturalWidth,height/image.naturalHeight);
     const w = image.naturalWidth*scale, h = image.naturalHeight*scale;
+    context.imageSmoothingEnabled=true;context.imageSmoothingQuality="high";
     context.fillStyle="#000";context.fillRect(0,0,width,height);
     context.drawImage(image,(width-w)/2,(height-h)/2,w,h);
     canvas.classList.add('ready');
