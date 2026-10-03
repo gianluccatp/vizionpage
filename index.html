@@ -14,13 +14,13 @@ html.intro-active{overflow:hidden;overscroll-behavior:none}
 .intro-active .intro.leaving{opacity:0;pointer-events:none}
 .intro-active .motion-on *{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){.intro{display:none!important;transition:none}}
-</style>
+.video-swipe-hint{position:absolute;bottom:max(45px,env(safe-area-inset-bottom));left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:10px;color:#fff;font:500 14px/1.5 Arial,sans-serif;letter-spacing:1px;pointer-events:none}.video-swipe-hint span:last-child{color:#f12b31;font-size:28px}.intro video::-webkit-media-controls-overlay-play-button{display:none!important}</style>
 <script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro-active');}</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080505'/%3E%3Cpath d='M6 8h7l4 12 4-12h5L18 26h-5Z' fill='%23f12b31'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="intro" id="vizion-intro" aria-hidden="true"><video id="intro-video" data-src="assets/vizion-intro.mp4" poster="frames/frame-0090.webp" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1"></video><img id="intro-animation" data-src="assets/vizion-intro-lite.webp" alt="" hidden decoding="async"></div>
+<div class="intro" id="vizion-intro" aria-hidden="true"><video id="intro-video" data-src="assets/vizion-intro.mp4" poster="frames/frame-0090.webp" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1"></video></div>
 <script src="intro.js"></script>
 <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
 <symbol id="bolt" viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-13h-6z"/></symbol>
