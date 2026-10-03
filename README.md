@@ -1,21 +1,25 @@
 # VIZION PAGE
 
-Site institucional e landing page em HTML, CSS e JavaScript, sem dependências de build.
+Site em HTML, CSS e JavaScript, sem dependências de instalação ou build.
 
-## Estrutura
+## Publicar na Vercel
 
-- `index.html`: página principal.
-- `styles.css`: identidade visual e animações.
-- `script.js`: interações do site.
-- `scroll-intro.js`: sequência de 120 frames controlada pela rolagem.
-- `intro.js`: vídeo de abertura e transição para o Hero.
-- `frames/`: arquivos WEBP originais, de `frame-0001.webp` a `frame-0120.webp`.
-- `assets/vizion-intro.mp4`: vídeo de abertura.
+1. Acesse https://vercel.com/new e conecte sua conta do GitHub.
+2. Importe `gianluccatp/vizionpage`, branch `main`.
+3. Mantenha **Root Directory** na raiz do repositório (`./`).
+4. Use **Framework Preset: Other**. O `vercel.json` já define a saída como `.` e dispensa comandos de instalação e build.
+5. Clique em **Deploy**.
 
-## Visualização
+Não são necessárias variáveis de ambiente. O vídeo e os 120 frames já estão no repositório. Alterações futuras na branch `main` são publicadas pela integração Git da Vercel.
 
-Sirva esta pasta com um servidor HTTP estático. A sequência de abertura segue a ordem: frames por rolagem → vídeo → Hero. A preferência por movimento reduzido usa uma imagem estática.
+## Arquivos
 
-## Vercel
+- `index.html`, `styles.css`: página e visual.
+- `script.js`: interações existentes.
+- `scroll-intro.js`: animação em canvas controlada pela rolagem.
+- `intro.js`: vídeo de abertura na velocidade de 75% e fade para o Hero.
+- `frames/frame-0001.webp` até `frames/frame-0120.webp`: sequência original.
+- `assets/vizion-intro.mp4`: vídeo original.
+- `vercel.json`: configuração de publicação estática.
 
-Importe este repositório, selecione **Other** e mantenha a raiz como diretório do projeto. Não há comando de instalação ou build. Todos os arquivos públicos estão na raiz.
+A abertura segue a ordem: scroll animation → vídeo → Hero. A preferência por movimento reduzido apresenta uma imagem estática.
