@@ -19,6 +19,7 @@ function startVizionIntro() {
     clearTimeout(startupTimer);
     clearInterval(stallTimer);
     clearTimeout(exitTimer);
+    document.removeEventListener("touchstart",retryPlayback);
     document.removeEventListener("touchend",retryPlayback);
     document.removeEventListener("pointerup",retryPlayback);
     document.removeEventListener("keydown",retryPlayback);
@@ -48,6 +49,7 @@ function startVizionIntro() {
   reducedMotion.addEventListener('change', onMotionChange);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded', () => { if (!finished) setPageInert(true); }, {once:true});
   else setPageInert(true);
+  video.setAttribute("autoplay","");video.setAttribute("muted","");video.setAttribute("playsinline","");video.setAttribute("webkit-playsinline","");video.controls=false;
   video.muted = true;
   video.defaultMuted = true;
   video.playsInline = true;
@@ -78,7 +80,8 @@ function startVizionIntro() {
     if (attempt) attempt.catch(error => {
       if(error.name!=="NotAllowedError"){finish(true);return;}
       awaitingGesture=true;clearTimeout(startupTimer);
-      if(!touchHint){touchHint=document.createElement("div");touchHint.className="scroll-entry-hint";touchHint.textContent="Toque para continuar";overlay.appendChild(touchHint);}
+      
+      document.addEventListener("touchstart",retryPlayback,{passive:true});
       document.addEventListener("touchend",retryPlayback,{passive:true});
       document.addEventListener("pointerup",retryPlayback);
       document.addEventListener("keydown",retryPlayback);
@@ -86,6 +89,7 @@ function startVizionIntro() {
     });
   };
   video.addEventListener('canplay', play, {once:true});
+  video.addEventListener('loadeddata', play, {once:true});
   startupTimer = setTimeout(() => {if(!awaitingGesture)finish(true);}, 12000);
   play();
 }
