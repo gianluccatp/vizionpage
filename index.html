@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080505"><meta name="description" content="VIZION PAGE: sites e landing pages com design estratégico, experiência fluida e foco no seu negócio. Solicite um orçamento.">
+<title>VIZION PAGE — Sites e landing pages</title>
+<style>
+.intro{display:none;position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;background:#000;z-index:2147483647;opacity:1;transition:opacity 300ms ease;overflow:hidden;align-items:center;justify-content:center}
+.intro video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#000;pointer-events:none}
+html.intro-active{overflow:hidden;overscroll-behavior:none}
+.intro-active body{position:fixed;inset:0;width:100%;overflow:hidden}
+.intro-active .intro{display:flex}
+.intro-active .intro.leaving{opacity:0;pointer-events:none}
+.intro-active .motion-on *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.intro{display:none!important;transition:none}}
+</style>
+<style>
+.scroll-intro{display:none;background:#000;position:relative;height:600vh;height:600svh}
+.sequence-active .scroll-intro,.sequence-static .scroll-intro{display:block}
+.sequence-active main,.sequence-active footer{display:none}
+.scroll-intro-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+.scroll-intro canvas,.scroll-intro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.scroll-intro canvas{opacity:0}.scroll-intro canvas.ready{opacity:1}
+.scroll-intro.handoff{position:fixed;inset:0;height:100vh;height:100dvh;z-index:2147483647;transition:opacity 300ms ease}
+.scroll-intro.handoff .scroll-intro-stage{height:100%;position:relative}
+.scroll-intro.leaving{opacity:0;pointer-events:none}
+.sequence-active .intro{z-index:2147483646}
+.sequence-static .scroll-intro{height:100vh;height:100svh}
+@media(prefers-reduced-motion:reduce){.scroll-intro{height:100svh}.scroll-intro.handoff{transition:none}}
+</style>
+<link rel="preload" as="image" href="frames/frame-0001.webp" fetchpriority="high">
+<script>document.documentElement.classList.add(window.matchMedia('(prefers-reduced-motion: reduce)').matches?'sequence-static':'sequence-active');if('scrollRestoration' in history){history.scrollRestoration='manual';}window.scrollTo(0,0);</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080505'/%3E%3Cpath d='M6 8h7l4 12 4-12h5L18 26h-5Z' fill='%23f12b31'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="scroll-intro" id="scroll-intro" aria-label="Animação da marca VIZION controlada pela rolagem"><div class="scroll-intro-stage"><img src="frames/frame-0001.webp" alt="VIZION" width="1280" height="720" fetchpriority="high"><canvas aria-hidden="true"></canvas></div></section>
+<script src="scroll-intro.js"></script>
+<div class="intro" id="vizion-intro" aria-hidden="true"><video id="intro-video" data-src="assets/vizion-intro.mp4" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1"></video></div>
+<script src="intro.js"></script>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="bolt" viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-13h-6z"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 9v12"/></symbol>
+<symbol id="bars" viewBox="0 0 24 24"><path d="M3 21h18"/><rect x="4" y="11" width="3" height="7" rx=".5"/><rect x="10.5" y="7" width="3" height="11" rx=".5"/><rect x="17" y="3" width="3" height="15" rx=".5"/></symbol>
+<symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-3a7 7 0 0 1 14 0v3z"/></symbol>
+<symbol id="device" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M8 21h8M12 16v5"/></symbol>
+</defs></svg>
+<main>
+<section class="hero" id="inicio">
+<div class="ambient" aria-hidden="true"></div><div class="stars" aria-hidden="true"></div>
+<header class="navbar container">
+<a class="brand" href="#inicio" aria-label="VIZION PAGE, início"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 4h9l6 18 5-13-7-5h15L19 30h-8z" fill="currentColor"/></svg><span>VIZION <b>PAGE</b></span></a>
+<nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#solucoes">Soluções</a><button class="nav-contact" data-quote>Contato</button></nav>
+<button class="button small" data-quote><svg><use href="#user"/></svg>Orçamento</button>
+<button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div class="hero-content container">
+<span class="badge"><svg><use href="#bolt"/></svg>Sites & landing pages</span>
+<h1>Transforme sua presença digital<br><span>em novas oportunidades</span></h1>
+<p>Sites e landing pages que conectam sua marca ao próximo cliente.</p>
+<div class="hero-actions"><button class="button primary" data-quote>Solicitar orçamento</button><a class="button" href="#servicos">Conhecer soluções</a></div>
+</div>
+<div class="horizon" aria-hidden="true"><svg viewBox="0 0 1100 220" preserveAspectRatio="none"><defs><linearGradient id="arc"><stop stop-color="#f12b31" stop-opacity="0"/><stop offset=".22" stop-color="#f12b31" stop-opacity=".65"/><stop offset=".5" stop-color="#ff777a"/><stop offset=".78" stop-color="#f12b31" stop-opacity=".65"/><stop offset="1" stop-color="#f12b31" stop-opacity="0"/></linearGradient><filter id="glow" x="-20%" y="-100%" width="140%" height="300%"><feGaussianBlur stdDeviation="7"/></filter></defs><path class="arc-glow" d="M20 185Q550-105 1080 185"/><path class="arc-soft" d="M20 185Q550-105 1080 185"/><path class="arc-line" d="M20 185Q550-105 1080 185"/></svg></div>
+<div class="social container"><p>Da sua ideia à sua presença digital.</p><div class="service-marquee" role="group" aria-label="O que a VIZION PAGE cria"><div class="service-track"><div class="service-group"><span>Sites</span><i aria-hidden="true">✦</i><span>Landing pages</span><i aria-hidden="true">✦</i><span>Design</span><i aria-hidden="true">✦</i><span>Estratégia</span><i aria-hidden="true">✦</i><span>Experiência digital</span><i aria-hidden="true">✦</i></div><div class="service-group" aria-hidden="true"><span>Sites</span><i aria-hidden="true">✦</i><span>Landing pages</span><i aria-hidden="true">✦</i><span>Design</span><i aria-hidden="true">✦</i><span>Estratégia</span><i aria-hidden="true">✦</i><span>Experiência digital</span><i aria-hidden="true">✦</i></div></div></div></div>
+</section>
+<section class="features container" id="servicos">
+<div class="section-heading"><span class="badge">Sua marca, na próxima página</span><h2>Presença digital <span>com propósito</span></h2><p>Design e estratégia para apresentar seu negócio<br>e facilitar o próximo passo do seu cliente.</p></div>
+<div class="cards">
+<article class="card"><svg class="icon"><use href="#grid"/></svg><h3>Sites institucionais</h3><p>Apresente sua empresa com clareza, personalidade e uma navegação intuitiva.</p></article>
+<article class="card"><svg class="icon"><use href="#bars"/></svg><h3>Landing pages</h3><p>Uma página, um objetivo. Direcione a atenção para o que gera oportunidades.</p></article>
+<article class="card"><svg class="icon"><use href="#target"/></svg><h3>Experiência responsiva</h3><p>Sua marca bem apresentada em cada tela, do primeiro clique ao contato.</p></article>
+</div>
+</section>
+<section class="benefits container" id="solucoes">
+<div class="benefit-copy"><span class="eyebrow">Design estratégico</span><h2>Mais clareza.<br><span>Melhores conexões.</span></h2><p>Transformamos sua oferta em uma experiência digital que ajuda o visitante a entender, confiar e entrar em contato.</p><div class="benefit-item"><svg class="icon"><use href="#device"/></svg><div><h3>Uma experiência em qualquer tela</h3><p>Layouts que se adaptam ao seu cliente, com atenção a cada detalhe.</p></div></div><div class="benefit-item"><svg class="icon"><use href="#target"/></svg><div><h3>Cada elemento tem um objetivo</h3><p>Hierarquia visual e chamadas claras para orientar o caminho até o orçamento.</p></div></div></div>
+<div class="product-visual" aria-label="Exemplo ilustrativo de painel de performance"><div class="ghost-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart"><div class="chart-label">Experiência digital</div><div class="metric">85<span>/ 100</span><span class="metric-tag">Design</span></div><div class="chart-bars"><div><div class="bar red" style="--height:76%"></div><span>Clareza</span></div><div><div class="bar" style="--height:98%"></div><span>Design</span></div><div><div class="bar" style="--height:86%"></div><span>Experiência</span></div></div><p class="chart-note">Prévia de interface · dados ilustrativos</p></div></div>
+</section>
+<section class="showcase container" id="projetos">
+<div class="section-heading"><span class="badge">Uma ideia. Muitas possibilidades.</span><h2>Seu negócio merece uma <span>boa página</span></h2><p>Uma direção visual para cada objetivo.<br>Explore possibilidades para o seu próximo projeto.</p></div>
+<div class="project-grid">
+<article class="project"><div class="mini-site mini-institutional" aria-label="Conceito de site institucional"><div class="mini-nav"><strong>FORMA<span>®</span></strong><span>Sobre &nbsp; Projetos &nbsp; Contato</span></div><div class="mini-editorial"><small>ARQUITETURA & INTERIORES</small><h3>Espaços para<br>viver melhor.</h3><span class="mini-cta">Conheça o estúdio</span></div><div class="architecture" aria-hidden="true"><i></i><b></b><em></em></div><div class="mini-bottom">A forma acompanha a sua vida.</div></div><div class="project-caption"><div><span class="eyebrow">Site institucional</span><h3>Uma marca bem apresentada.</h3></div><span class="concept-label">Conceito visual</span></div></article>
+<article class="project"><div class="mini-site mini-landing" aria-label="Conceito de landing page"><div class="mini-nav"><strong>pulse<span>.</span></strong><span>O método &nbsp; Resultados</span></div><div class="mini-landing-copy"><small>SEU PRÓXIMO MOVIMENTO</small><h3>Saia do plano.<br><span>Entre em ação.</span></h3><p>Treinos que acompanham o seu ritmo.</p><span class="mini-cta">Conhecer o programa</span></div><div class="pulse-ring" aria-hidden="true"></div><div class="mini-bottom">Foco. Movimento. Constância.</div></div><div class="project-caption"><div><span class="eyebrow">Landing page</span><h3>Uma oferta no centro de tudo.</h3></div><span class="concept-label">Conceito visual</span></div></article>
+</div><p class="example-note">Exemplos conceituais de composição. Não representam projetos de clientes.</p>
+</section>
+<section class="process container" id="processo"><div class="process-intro"><span class="eyebrow">Da primeira conversa à publicação</span><h2>Um caminho claro.<br><span>Do começo ao site.</span></h2><p>Você traz o negócio. Nós organizamos a experiência para apresentá-lo.</p><button class="button" data-quote>Conversar sobre meu projeto</button></div><div class="steps"><article><span class="step-number">01</span><div><h3>Entender antes de criar</h3><p>Conversamos sobre sua marca, seu público e o que a página precisa alcançar.</p></div></article><article><span class="step-number">02</span><div><h3>Dar forma à sua ideia</h3><p>Definimos conteúdo, estrutura e direção visual para tornar sua oferta clara.</p></div></article><article><span class="step-number">03</span><div><h3>Construir cada detalhe</h3><p>Desenvolvemos a página e ajustamos a experiência para desktop, tablet e celular.</p></div></article><article><span class="step-number">04</span><div><h3>Revisar e colocar no ar</h3><p>Você acompanha a revisão. Com tudo aprovado, preparamos a publicação.</p></div></article></div></section>
+<section class="details-section container"><div class="section-heading"><span class="badge">O detalhe faz a diferença</span><h2>Bonito de ver. <span>Fácil de usar.</span></h2><p>Uma página funciona melhor quando cada decisão<br>considera quem está do outro lado da tela.</p></div><div class="detail-grid"><article><span class="detail-index">01 / DESIGN</span><h3>Identidade que faz sentido</h3><p>Cores, tipografia e composição alinhadas à maneira como sua marca quer ser percebida.</p></article><article><span class="detail-index">02 / CONTEÚDO</span><h3>Sua oferta, sem ruído</h3><p>Uma estrutura que explica o que você faz e ajuda o visitante a encontrar o que procura.</p></article><article><span class="detail-index">03 / EXPERIÊNCIA</span><h3>Contato no momento certo</h3><p>Botões e caminhos claros para transformar interesse em uma conversa sobre o seu negócio.</p></article><article><span class="detail-index">04 / TECNOLOGIA</span><h3>Atenção além da aparência</h3><p>Responsividade, navegação e cuidados técnicos considerados durante a construção.</p></article></div></section>
+<section class="faq container" id="duvidas"><div class="faq-intro"><span class="eyebrow">Antes do próximo passo</span><h2>Dúvidas?<br><span>Vamos simplificar.</span></h2><p>O essencial para começar seu projeto com clareza.</p></div><div class="faq-list"><details><summary>Preciso de um site ou de uma landing page?<span>+</span></summary><p>Um site apresenta sua empresa, serviços e informações em uma estrutura mais ampla. Uma landing page concentra a atenção em uma oferta e uma ação, como solicitar orçamento. Na conversa inicial, alinhamos o formato ao seu objetivo.</p></details><details><summary>O site vai funcionar no celular?<span>+</span></summary><p>Sim. A experiência será adaptada para desktop, tablet e celular, considerando a leitura, os botões e a navegação em cada tela.</p></details><details><summary>O que preciso enviar para começar?<span>+</span></summary><p>Nome da empresa, informações sobre seus serviços, contatos e identidade visual, se já tiver. Fotos e referências também ajudam a definir a direção do projeto.</p></details><details><summary>Quanto custa e qual é o prazo?<span>+</span></summary><p>O valor e o prazo dependem do conteúdo, da quantidade de páginas e das funcionalidades. O orçamento é preparado depois de entendermos o que seu projeto precisa.</p></details><details><summary>Domínio e hospedagem entram no projeto?<span>+</span></summary><p>Esses pontos são definidos na proposta. Se você já tiver domínio ou hospedagem, informe na conversa para avaliarmos a configuração necessária.</p></details></div></section>
+<section class="final-cta container"><div class="cta-light" aria-hidden="true"></div><span class="badge"><svg><use href="#bolt"/></svg>Sua próxima página começa aqui</span><h2>Vamos dar uma nova<br><span>visão ao seu negócio?</span></h2><p>Conte o que você precisa. Vamos encontrar o formato certo.</p><button class="button primary" data-quote>Solicitar orçamento</button><span class="cta-caption">Converse com a VIZION PAGE pelo WhatsApp.</span></section>
+</main>
+<footer class="container"><a class="brand" href="#inicio"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 4h9l6 18 5-13-7-5h15L19 30h-8z" fill="currentColor"/></svg><span>VIZION <b>PAGE</b></span></a><p>Sites e landing pages com uma nova visão.</p><div><a href="#servicos">Serviços</a><a href="#projetos">Conceitos</a><a href="https://wa.me/558291296214" target="_blank" rel="noopener noreferrer">WhatsApp</a></div><small>© 2026 VIZION PAGE</small></footer>
+<dialog id="quote-dialog" aria-labelledby="quote-title"><button class="close" aria-label="Fechar">×</button><span class="eyebrow">Vamos criar sua próxima página</span><h2 id="quote-title">Solicitar <span>orçamento</span></h2><p>Conte um pouco sobre o seu projeto.</p><form id="quote-form"><label>Seu nome<input name="name" autocomplete="name" required placeholder="Como podemos chamar você?"></label><label>Seu e-mail<input name="email" type="email" autocomplete="email" required placeholder="voce@empresa.com"></label><label>O que você precisa?<select name="service"><option>Site institucional</option><option>Landing page</option><option>Site e landing page</option></select></label><label>Sobre o projeto<textarea name="details" rows="3" required placeholder="Conte sobre sua empresa e o objetivo da página."></textarea></label><button class="button primary" type="submit">Solicitar pelo WhatsApp</button><p class="form-note">Ao continuar, seu pedido será aberto no WhatsApp para você revisar e enviar.</p><p id="form-status" role="status" hidden></p><textarea id="quote-result" aria-label="Pedido de orçamento preparado" readonly hidden></textarea><button id="copy-request" class="button" type="button" hidden>Copiar pedido</button></form></dialog>
+<script src="script.js"></script>
+</body></html>
